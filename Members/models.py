@@ -106,7 +106,9 @@ class Rocketry(models.Model):
         #("None", "None"),
         ("AS", "Aerodynamics and Structures"),
         ("GCS", "Guidance and Control System"),
-        ("PS", "Propulsion System")
+        ("PS", "Propulsion System"),
+        ("AV","Avionics"),
+        ("RNR","Research and Recovery")
     )
     RPOSTS = (
         ("None", "None"),
@@ -134,11 +136,13 @@ class Rocketry(models.Model):
 class NonTechnical(models.Model):
     
     NONTECH = (
-        ("WEB","Website and Design"),
+        ("Des","Design"),
         ("SPR","Public Relations and Sponsorship"),
         #("SP","Sponsorship"),
         ("SM","Social Media"),
         ("DOC","Documentation"),
+        ("VE","Video Editing"),
+        ("Web","Web Development")
     )
 
     NPOST = (
@@ -193,3 +197,4 @@ class Faculty(models.Model):
     position      = models.CharField(null=False, blank=False, choices=POST, max_length=40)
     dept          = models.CharField(null=False, blank=False, choices=DEPT, max_length=40)
     rank          = models.IntegerField(null=True)
+    facultybio = models.URLField(null= True,blank=True)
